@@ -12,8 +12,8 @@ html, body{
 }
 body{
     overflow: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    display: '-webkit-box';
+    display: '-ms-flexbox';
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,8 +26,8 @@ body{
 }
 #drag-container, #spin-container{
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    display: '-webkit-box';
+    display: '-ms-flexbox';
     display: flex;
     -webkit-transform-style: preserve-3d ;
     transform-style: preserve-3d; 
@@ -51,4 +51,61 @@ body{
     box-shadow:0 0 #fff;
     -webkit-box-reflect:below 10px linear-gradient(transparent, transparent,#0005);
 
+}
+#drag-container img:hover, #drag-container video:hover{
+    -webkit-box-shadow: 0 0 15px #fffd;
+    box-shadow: 0 0 15px #fffd;
+    -webkit-box-reflect:below 10px linear-gradient(transparent, transparent,#0007);
+
+
+}
+#ground{
+    width:900px;
+    height: 900px;
+    position:absolute;
+    top:100%;
+    left:50%;
+    -webkit-transform: translate(-50%, 50%) rotateX(90deg) ;
+    transform:translate(-50%, -50%) rotateX(90deg);
+    background:'-webkit-radial-gradiant'(center center , farthest-side, #9993, transparent);
+}
+@-webkit-keyframes spin{
+    from{
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    } to {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+
+    }
+}
+@keyframes spin{
+    from{
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    } to {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+
+    }
+}
+@-webkit-keyframes spinRevert{
+    from{
+        -webkit-transform: rotateX(360deg);
+        transform: rotateX(360deg);
+    } to {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+
+    }
+}
+@keyframes spin{
+    from{
+        -webkit-transform: rotateX(360deg);
+        transform: rotateX(360deg);
+    } to {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+
+    }
 }

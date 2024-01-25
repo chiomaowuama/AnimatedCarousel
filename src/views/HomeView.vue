@@ -1,12 +1,28 @@
 <script setup>
+  import { onMounted, ref } from 'vue';
 
+  let raduis = ref(240);
+  let autoRotate = ref(true);
+  let rotateSpead = ref(-60);
+  let imgwidth = ref(120)
+  let imgheight = ref(170);
+  let dragcontainer =ref('');
+  let spincontainer = ref('')
+  // setTimeout(init, 1000)
+ 
+
+  onMounted(() => {
+    setTimeout(init, 1000)
+        
+    })
 </script>
+
 
 <template>
   <main>
 
-    <div id="drag-container">
-      <div id="spin-container">
+    <div id="drag-container"  ref="dragcontainer">
+      <div id="spin-container" ref="spincontainer">
         <!-- images -->
         <img src="https://images.unsplash.com/photo-1440589473619-3cde28941638?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29vcnBlcmF0ZSUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29vcnBlcmF0ZSUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D">
