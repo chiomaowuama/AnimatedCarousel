@@ -8,6 +8,7 @@
   let imgheight = ref(170);
   let dragcontainer =ref('');
   let spincontainer = ref('');
+  let ground =ref('')
   let videoUrl = ref("https://player.vimeo.com/external/479728625.sd.mp4?s=f4f886d3d45a0312d8d47419647788178535a2c6&profile_id=165&oauth2_token_id=57447761")
   let videosHolder = ref([]);
   const images = ref([
@@ -21,16 +22,30 @@
   ]);
   let alimg = ref([])
   let aEle = ref([]) //this is the thing that isnt working 
-  // console.log(videosHolder)
-  // console.log(alimg.value)
-  console.log(aEle)
+  
+  if(spincontainer.value ){
 
+    spincontainer.value.style.width = `${imgwidth.value}px`;
+    spincontainer.value.style.height = `${imgheight.value}px`;
+  }
+  if( ground.value ){
+    ground.value.style.width = `${raduis.value * 3}px`;
+    ground.value.style.height = `${raduis.value * 3}px`;
+  }
+  console.log(ground.value)
+  function init(delaytime){
+    for(let i = 0; i < aEle.length;i++){
+      
+    }
+  }
+  // spincontainer.style.height = imgheight + "px"
+  // let ground =('')
+  // ground.style.width = raduis * 3 + "px"
+  // ground.style.height = raduis * 3 + "px"
   onMounted(() => {
-  //   let alimg = ref([])
+ 
   aEle.value = [ ...alimg.value, videosHolder.value] //this is the thing that isnt working 
-  // console.log(videosHolder)
-  // console.log(alimg.value)
-  // console.log(aEle.value)
+  
     
     })
 </script>
@@ -53,7 +68,7 @@
         <!-- text at the center of the ground -->
         <p>3D carousel</p>
       </div>
-      <div id="ground"></div>
+      <div id="ground" ref="ground"></div>
     </div>
   </main>
 </template>
