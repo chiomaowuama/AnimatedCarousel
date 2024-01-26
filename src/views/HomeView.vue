@@ -19,15 +19,15 @@
     " https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNvb3JwZXJhdGUlMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D",
     // ... add other image URLs
   ]);
-  // let alimg = ref([])
-  // let aEle =ref({image:alimg.value, video:videosHolder.value}) //this is the thing that isnt working 
+  let alimg = ref([])
+  let aEle = ref([]) //this is the thing that isnt working 
   // console.log(videosHolder)
   // console.log(alimg.value)
-  // console.log(aEle.value)
+  console.log(aEle)
 
   onMounted(() => {
   //   let alimg = ref([])
-  // let aEle =ref({image:alimg.value, video:videosHolder.value}) //this is the thing that isnt working 
+  aEle.value = [ ...alimg.value, videosHolder.value] //this is the thing that isnt working 
   // console.log(videosHolder)
   // console.log(alimg.value)
   // console.log(aEle.value)
