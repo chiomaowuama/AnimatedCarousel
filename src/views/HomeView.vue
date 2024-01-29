@@ -22,32 +22,66 @@
   ]);
   let alimg = ref([])
   let aEle = ref([]) //this is the thing that isnt working 
-  
-  if(spincontainer.value ){
+  // console.log(aEle)
+  // if(spincontainer.value ){
 
-    spincontainer.value.style.width = `${imgwidth.value}px`;
-    spincontainer.value.style.height = `${imgheight.value}px`;
+    
+  //   spincontainer.value.style.width = `${imgwidth.value * 3}px`;
+  //   spincontainer.value.style.height = `${imgheight.value}px`;
+  //   console.log( spincontainer.value.style.width);
+  // }
+  // if( ground.value ){
+  //   ground.value.style.width = `${raduis.value * 3}px`;
+  //   ground.value.style.height = `${raduis.value * 3}px`;
+  // }
+  // console.log( spincontainer.value.style.width)
+
+  function init(delaytime){
+    console.log("hello")
+    for(let i = 0; i < aEle.value.length;i++){
+      aEle.value.forEach((element, i) => {
+        element.style.transform = `rotateY(${i * (360 / aEle.value.length)}deg) translateZ(${raduis.value}px)`;
+        element.style.transition = `transform 1s`;
+        element.style.transitionDelay = delaytime || (aEle.value.length - i) / 4 + 's';
+    
+      });
+    //  aEle.value[i].style.transitionDelay = delaytime || (aEle.value.length - i) / 4 + 's';
+    }
+  }
+  function applyTranform(obj){
+    tY = Math.max(Math.min(tY, 180), -180);
+
+    obj.style.transform = `rotateX(${-tY}deg) rotateY(${tX}deg)`;
+    console.log(obj.style.transform);
+  }
+
+  function playSpin(yes){
+    spincontainer.value.style.animationPlayState = yes ? 'running' : 'paused';
+  }
+  let sX, sY, nY, desX = 0
+  desY = 0
+  tX = 0
+  tY = 10
+  setTimeout(() => {
+    init(1000)
+    // console.log("this is here")
+  }, 1000);
+
+  onMounted(() => {
+    
+  aEle.value = [ ...alimg.value, videosHolder.value] //this is the thing that isnt working 
+ 
+  if(spincontainer.value ){
+  spincontainer.value.style.width = `${imgwidth.value}px`;
+  spincontainer.value.style.height = `${imgheight.value}px`;
+  
   }
   if( ground.value ){
     ground.value.style.width = `${raduis.value * 3}px`;
     ground.value.style.height = `${raduis.value * 3}px`;
+    console.log(  ground.value.style.width);
   }
-  console.log(ground.value)
-  function init(delaytime){
-    for(let i = 0; i < aEle.length;i++){
-      
-    }
-  }
-  // spincontainer.style.height = imgheight + "px"
-  // let ground =('')
-  // ground.style.width = raduis * 3 + "px"
-  // ground.style.height = raduis * 3 + "px"
-  onMounted(() => {
- 
-  aEle.value = [ ...alimg.value, videosHolder.value] //this is the thing that isnt working 
-  
-    
-    })
+  })
 </script>
 
 <template>
