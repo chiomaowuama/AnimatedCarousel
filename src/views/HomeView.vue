@@ -43,14 +43,21 @@
 
   function playSpin(yes){
     spincontainer.value.style.animationPlayState = (yes?'running': 'paused ' )
-    // console.log(spincontainer.value);
+    console.log(spincontainer.value);
   }
   let sX, sY, nX, nY, desX = 0,
   desY = 0,
   tX = 0,
   tY = 10;
 
- 
+  if(autoRotate){
+      const animationName = rotateSpead > 0 ? 'spin' : 'spinRevert';
+      if (spincontainer.value) {
+        spincontainer.value.style.animation = `${animationName} ${Math.abs(rotateSpead.value)}s infinite linear`;
+       
+      }
+  }
+
   setTimeout(() => {
     init(1000)
     
@@ -69,14 +76,8 @@
       ground.value.style.height = `${raduis.value * 3}px`;
       // console.log(  ground.value.style.width);
     }
-    if(autoRotate){
-      const animationName = rotateSpead > 0 ? 'spin' : 'spinRevert';
-      if (spincontainer.value) {
-        spincontainer.value.style.animation = `${animationName} ${Math.abs(rotateSpead.value)}s infinite linear`;
-        console.log(rotateSpead.value);
-      }
-    }
-    
+   
+
   })
  
 </script>
@@ -99,7 +100,9 @@
         <!-- text at the center of the ground -->
         <p>3D carousel</p>
       </div>
-      <div id="ground" ref="ground"></div>
+      <div id="ground" ref="ground"  >
+
+      </div>
     </div>
   </main>
 </template>
